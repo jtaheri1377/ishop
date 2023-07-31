@@ -1,0 +1,7 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+:host ::ng-deep .mat-badge-content {
+  margin-top: 20px !important;
+}

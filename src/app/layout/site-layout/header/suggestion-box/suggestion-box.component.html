@@ -1,0 +1,18 @@
+<div class="w-full transition-all h-fit bg-white  ">
+  <img class="w-full h-fit px-4" src="./../../../../../assets/images/ad1.jpg" alt="">
+  <hr class="w-full h-[2px] my-2 bg-slate-200">
+  <div>
+    <div class="text-slate-500 font-bold flex items-center pb-3">
+      <mat-icon class="text-medium text-red-400">whatshot</mat-icon>
+      <span class="text-sm"> جستجو های پرطرفدار</span>
+    </div>
+    <swiper class="w-full h-fit" slidesPerView="auto" [navigation]="true" [spaceBetween]="10">
+      <ng-template swiperSlide class="w-fit h-fit cursor-pointer" *ngFor="let item of items">
+        <div class="w-fit h-fit text-xs px-2 py-[7px] bg-slate-200 rounded-full">
+          <i class="fa fa-search px-1"></i>
+          <span class="px-1 font-bold">{{item}}</span>
+        </div>
+      </ng-template>
+    </swiper>
+  </div>
+</div>

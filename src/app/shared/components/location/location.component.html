@@ -1,0 +1,21 @@
+<div class="w-full h-full p-3 flex flex-col items-center bg-white rounded-lg">
+  <div class="w-full grow rounded-md" leaflet [leafletOptions]="options">
+
+  </div>
+  <!-- <hr class="w-full h-[2px] bg-slate-50 my-2"> -->
+  <div class="w-full h-fit flex flex-wrap justify-between items-center">
+    <div class="text-red-500 text-sm font-bold flex items-center">
+      <mat-icon class="mat-18">location_on</mat-icon>
+      <span>لطفاً محل تحویل کالا را انتخاب کنید</span>
+    </div>
+
+    <div class="flex gap-2 mt-2 grow justify-end font-bold text-sm">
+      <button mat-raised-button color="">
+        انصراف
+      </button>
+      <button mat-raised-button color="accent">
+        انتخاب
+      </button>
+    </div>
+  </div>
+</div>

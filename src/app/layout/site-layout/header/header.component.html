@@ -1,0 +1,44 @@
+<mat-toolbar class="relative !h-fit !py-2 !px-0 sm:px-2" dir="rtl" (focusout)="suggestionVisible(false)">
+  <button mat-icon-button class="" matTooltip="دسته بندی" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>My App</span>
+  <div class="w-full max-w-[400px] mr-2  transition-all flex flex-col jutify-center items-center gap-2">
+    <div class="sm:relative flex justify-between items-center rounded  sm:bg-slate-50  w-full px-2 mx-1 sm:mx-3">
+      <div class="w-full h-fit flex items-center" (click)="suggestionVisible(true);$event.stopPropagation()">
+        <button mat-icon-button matTooltip="جستجو">
+          <mat-icon class="cursor-pointer pr-2">search</mat-icon>
+        </button>
+        <input class="!hidden sm:!block w-full mx-3 placeholder:text-slate-400 placeholder:text-sm
+    " placeholder="جستجو در فروشگاه" type="text
+    " style="background:transparent;">
+      </div>
+      <!-- suggestion Box  -->
+      <div overlay [isOpen]="suggestionBox" class="w-screen sm:w-full h-screen sm:h-fit shadow  !z-20 p-3 absolute top-0 sm:top-12 left-0 sm:start-0 bg-white
+      " (mouseenter)="suggestionClicked = true;" (mouseleave)="suggestionClicked= false;suggestionBox=false">
+        <button mat-flat-button class="sm:!hidden ">
+          <mat-icon>keyboard_arrow_right</mat-icon>
+          <span class="text-sm font-bold" (click)="suggestionClicked= false;suggestionVisible(false)">بازگشت</span>
+        </button>
+        <hr class="w-full h-[2px] my-2 bg-slate-200 sm:hidden">
+        <app-suggestion-box class="w-full h-fit"></app-suggestion-box>
+      </div>
+      <!-- End of suggestion Box  -->
+
+    </div>
+    <!-- map -->
+    <div overlay (click)="locationBox=false" [isOpen]="locationBox" class="w-screen h-screen  absolute  top-0 left-0 !z-20 bg-[rgba(50,70,100,0.5)]">
+      <app-location (click)="$event.stopPropagation()" class="w-full h-full rounded rounded-sm absolute sm:top-[10vh] sm:left-[10vw] sm:w-[80vw] sm:h-[80vh] "></app-location>
+    </div>
+    <!-- End of map -->
+  </div>
+
+  <span class="example-spacer"></span>
+
+  <button mat-icon-button class=" " (click)="locationBox=!locationBox" matTooltip="محل تحویل کالا">
+    <mat-icon>location_on</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon" matTooltip="سبد خرید">
+    <mat-icon matBadge="0" matBadgePosition="before" matBadgeColor="accent">shopping_cart</mat-icon>
+  </button>
+</mat-toolbar>
