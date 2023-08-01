@@ -29,7 +29,7 @@
     </div>
     <!-- map -->
     <div overlay (click)="locationBox=false" [isOpen]="locationBox" class="w-screen h-screen  absolute  top-0 left-0 !z-20 bg-[rgba(50,70,100,0.5)]">
-      <app-location (click)="$event.stopPropagation()" class="w-full h-full rounded rounded-sm absolute sm:top-[10vh] sm:left-[10vw] sm:w-[80vw] sm:h-[80vh] "></app-location>
+      <app-location (click)="$event.stopPropagation()" class="w-full h-full sm:rounded-sm absolute sm:top-[10vh] sm:left-[10vw] sm:w-[80vw] sm:h-[80vh] "></app-location>
     </div>
     <!-- End of map -->
   </div>
