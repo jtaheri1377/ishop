@@ -1,24 +1,25 @@
-<mat-toolbar class="relative !h-fit !py-2 !px-0 sm:px-2" dir="rtl" (focusout)="suggestionVisible(false)">
-  <button mat-icon-button class="" matTooltip="دسته بندی" aria-label="Example icon-button with menu icon">
+<mat-toolbar  class="toolbar relative !h-fit !py-2 !px-3 sm:!px-4" dir="rtl" (focusout)="suggestionBox=false;">
+  <button mat-icon-button class="hover:rotate-180 transition" (click)="toggleSidenav()" aria-label="Example icon-button with menu icon">
     <mat-icon>menu</mat-icon>
   </button>
   <span>My App</span>
   <div class="w-full max-w-[400px] mr-2  transition-all flex flex-col jutify-center items-center gap-2">
     <div class="sm:relative flex justify-between items-center rounded  sm:bg-slate-50  w-full px-2 mx-1 sm:mx-3">
-      <div class="w-full h-fit flex items-center" (click)="suggestionVisible(true);$event.stopPropagation()">
+      <div class="w-full h-fit flex items-center" (focusout)="$event.stopPropagation()" (mouseleave)="suggestionBox=false;"  (click)="$event.stopPropagation();suggestionBox=true;">
         <button mat-icon-button matTooltip="جستجو">
           <mat-icon class="cursor-pointer pr-2">search</mat-icon>
         </button>
-        <input class="!hidden sm:!block w-full mx-3 placeholder:text-slate-400 placeholder:text-sm
+        <input class="!hidden sm:!block w-full mx-1 placeholder:text-slate-400 placeholder:text-sm
     " placeholder="جستجو در فروشگاه" type="text
-    " style="background:transparent;">
+    "
+     style="background:transparent;">
       </div>
       <!-- suggestion Box  -->
       <div overlay [isOpen]="suggestionBox" class="w-screen sm:w-full h-screen sm:h-fit shadow  !z-20 p-3 absolute top-0 sm:top-12 left-0 sm:start-0 bg-white
-      " (mouseenter)="suggestionClicked = true;" (mouseleave)="suggestionClicked= false;suggestionBox=false">
-        <button mat-flat-button class="sm:!hidden ">
+      " (mouseenter)="suggestionBox = true;" (click)="$event.stopPropagation();"  (mouseleave)="$event.stopPropagation();suggestionBox=false;">
+        <button mat-flat-button class="sm:!hidden " (click)="suggestionBox=false">
           <mat-icon>keyboard_arrow_right</mat-icon>
-          <span class="text-sm font-bold" (click)="suggestionClicked= false;suggestionVisible(false)">بازگشت</span>
+          <span class="text-sm font-bold" >بازگشت</span>
         </button>
         <hr class="w-full h-[2px] my-2 bg-slate-200 sm:hidden">
         <app-suggestion-box class="w-full h-fit"></app-suggestion-box>

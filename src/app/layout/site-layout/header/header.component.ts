@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { LayoutService } from './../../service/layout.service';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -11,18 +12,13 @@ export class HeaderComponent {
   locationBox: boolean = false;
   suggestionClicked: boolean = false;
 
+  constructor(private LayoutServ: LayoutService) { }
 
+  ngOnInit(): void {
+    this.LayoutServ.locationBoxVisible.subscribe(res => { this.locationBox = res })
+  }
 
-
-  suggestionVisible(InputClicked: boolean) {
-    if (InputClicked) {
-      this.suggestionBox = true;
-    } else
-      if (this.suggestionClicked) {
-        this.suggestionBox = true;
-        this.suggestionClicked = false;
-      } else
-        this.suggestionBox = false;
-
+  toggleSidenav() {
+    this.LayoutServ.toggleDrawer.next();
   }
 }

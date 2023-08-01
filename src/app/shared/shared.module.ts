@@ -8,13 +8,13 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet'
 import { SwiperModule } from 'swiper/angular';
-import SwiperCore, { Pagination, Navigation } from 'swiper';
+import SwiperCore, { Pagination, Navigation, Autoplay } from 'swiper';
 
 import { SharedRoutingModule } from './shared-routing.module';
 import { OverlayDirective } from './directives/overlay.directive';
 import { LocationComponent } from './components/location/location.component';
 
-SwiperCore.use([Pagination, Navigation,]);
+SwiperCore.use([Pagination, Navigation, Autoplay]);
 
 
 @NgModule({

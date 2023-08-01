@@ -1,0 +1,15 @@
+<div class="w-full h-80 flex justify-between items-center gap-3">
+  <div class="hidden sm:block w-36 h-full cursor-pointer rounded-lg overflow-hidden shadow-md">
+    <img class="object-cover w-full h-full rounded-lg" [src]="side_ads[0].img" alt="">
+  </div>
+  <swiper [pagination]="{clickable:true}" [autoplay]="{delay:4000, disableOnInteraction: false}" [loop]="true" class="rounded-lg overflow-hidden w-full h-full shadow-md" [navigation]="true">
+    <ng-template swiperSlide class="w-full h-full cursor-pointer " *ngFor="let item of items">
+      <div class="w-fit h-full ">
+        <img class="object-cover w-full h-full" [src]="item.img" alt="">
+      </div>
+    </ng-template>
+  </swiper>
+  <div class="hidden sm:block w-36 h-full cursor-pointer rounded-lg overflow-hidden shadow-md">
+    <img class="object-cover w-full h-full rounded-lg" [src]="side_ads[1].img" alt="">
+  </div>
+</div>

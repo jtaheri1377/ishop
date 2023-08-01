@@ -1,1 +1,7 @@
-<router-outlet></router-outlet>
+<mat-drawer-container dir="rtl" class="w-full h-[calc(100vh-64px)] !bg-slate-200 overflow-hidden" [hasBackdrop]="true">
+  <mat-drawer class="h-[calc(100vh-64px)]" #sidenav>I'm a drawer</mat-drawer>
+  <mat-drawer-content class="w-full h-full">
+    <router-outlet></router-outlet>
+    <app-footer class="h-fit"></app-footer>
+  </mat-drawer-content>
+</mat-drawer-container>

@@ -1,7 +1,10 @@
 <div class="w-full h-full p-3 flex flex-col items-center bg-white rounded-lg">
-  <div class="w-full grow rounded-md" leaflet [leafletOptions]="options">
+  <div #map class="w-full relative grow rounded-md !z-[0]" leaflet [leafletOptions]="options" (leafletMapReady)="onMapReady($event)">
 
   </div>
+  <button class="!absolute bottom-16 left-6 " matTooltip="موقعیت من" mat-mini-fab color="accent" (click)="getCurrentPosition()">
+    <mat-icon>gps_fixed</mat-icon>
+  </button>
   <!-- <hr class="w-full h-[2px] bg-slate-50 my-2"> -->
   <div class="w-full h-fit flex flex-wrap justify-between items-center">
     <div class="text-red-500 text-sm font-bold flex items-center">
@@ -10,10 +13,10 @@
     </div>
 
     <div class="flex gap-2 mt-2 grow justify-end font-bold text-sm">
-      <button mat-raised-button color="">
+      <button mat-raised-button color="" (click)="close()">
         انصراف
       </button>
-      <button mat-raised-button color="accent">
+      <button mat-raised-button color="accent" (click)="savePosition()">
         انتخاب
       </button>
     </div>

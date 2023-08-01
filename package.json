@@ -24,7 +24,7 @@
     "@types/leaflet": "^1.9.3",
     "font-awesome": "^4.7.0",
     "leaflet": "^1.9.4",
-    "rxjs": "~7.8.0",
+    "rxjs": "^6.5.4",
     "swiper": "^8.4.7",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
