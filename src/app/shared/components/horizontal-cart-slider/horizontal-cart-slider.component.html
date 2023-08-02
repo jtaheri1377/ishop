@@ -1,0 +1,19 @@
+<div class="h-fit my-3 sm:my-5 md:my-10">
+    <!-- Heading -->
+    <div class="w-full h-fit flex justify-between items-center mb-3">
+      <!-- title -->
+      <div class="font-bold text-base text-black">
+        پرفروش‌های 30 روز گذشته
+      </div>
+      <!-- see all -->
+      <div class="font-bold text-cyan-700 text-medium cursor-pointer">
+        <span>مشاهده همه</span>
+        <i class="bi bi-caret-left-fill"></i>
+      </div>
+    </div>
+    <swiper class="w-full h-fit" slidesPerView="auto" [navigation]="true">
+      <ng-template swiperSlide class="w-fit h-fit px-1" *ngFor="let item of items">
+        <app-h-cart></app-h-cart>
+      </ng-template>
+    </swiper>
+  </div>

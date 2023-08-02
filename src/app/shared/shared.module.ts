@@ -7,7 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { SwiperModule } from 'swiper/angular';
 import SwiperCore, { Pagination, Navigation, Autoplay } from 'swiper';
@@ -15,7 +15,10 @@ import SwiperCore, { Pagination, Navigation, Autoplay } from 'swiper';
 import { SharedRoutingModule } from './shared-routing.module';
 import { OverlayDirective } from './directives/overlay.directive';
 import { LocationComponent } from './components/location/location.component';
-import { VCartComponent } from './components/v-cart/v-cart.component';
+import { VCartComponent } from './components/vertical-cart-slider/v-cart/v-cart.component';
+import { HCartComponent } from './components/horizontal-cart-slider/h-cart/h-cart.component';
+import { HorizontalCartSliderComponent } from './components/horizontal-cart-slider/horizontal-cart-slider.component';
+import { VerticalCartSliderComponent } from '../shared/components/vertical-cart-slider/vertical-cart-slider.component';
 
 SwiperCore.use([Pagination, Navigation, Autoplay]);
 
@@ -24,7 +27,10 @@ SwiperCore.use([Pagination, Navigation, Autoplay]);
   declarations: [
     OverlayDirective,
     LocationComponent,
-    VCartComponent
+    VCartComponent,
+    HCartComponent,
+    HorizontalCartSliderComponent,
+    VerticalCartSliderComponent
   ],
   imports: [
     CommonModule,
@@ -53,7 +59,10 @@ SwiperCore.use([Pagination, Navigation, Autoplay]);
     LeafletModule,
     MatRippleModule,
     MatMenuModule,
-    VCartComponent
+    VCartComponent,
+    HCartComponent,
+    HorizontalCartSliderComponent,
+    VerticalCartSliderComponent,
   ]
 })
 export class SharedModule { }

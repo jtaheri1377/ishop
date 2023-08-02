@@ -6,7 +6,6 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { FirstSliderComponent } from './first-slider/first-slider.component';
 import { CategorySliderComponent } from './category-slider/category-slider.component';
-import { VerticalCartSliderComponent } from './vertical-cart-slider/vertical-cart-slider.component';
 
 
 @NgModule({
@@ -14,7 +13,6 @@ import { VerticalCartSliderComponent } from './vertical-cart-slider/vertical-car
     HomeComponent,
     FirstSliderComponent,
     CategorySliderComponent,
-    VerticalCartSliderComponent
   ],
   imports: [
     CommonModule,

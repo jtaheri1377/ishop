@@ -1,0 +1,19 @@
+<div class="h-fit p-3 flex flex-col items-center justify-between gap-4 bg-white">
+  <!-- images -->
+  <div class="w-full h-fit flex justify-between items-center gap-2">
+    <img [src]="item" alt="" class="w-20 aspect-square object-cover cursor-pointer" *ngFor="let item of images">
+  </div>
+  <!-- content -->
+  <div class="w-full h-fit flex justify-center gap-3">
+    <img [src]="images[0]" alt="" class="w-12 h-12 aspect-square object-cover rounded-full cursor-pointer">
+    <div class="self-stretch flex flex-col justify-between font-medium text-xs text-gray-500 transition-all">
+      <!-- market name -->
+      <p class="hover:text-red-600 font-semibold cursor-pointer ellipsis-my-text-in-one-line">عطاری پور ولیانی</p>
+      <p class="hover:text-red-600 cursor-pointer ellipsis-my-text-in-one-line">
+        <i class="fa fa-map-marker "></i>
+        <span> شیراز | </span>
+        <span> بهترین و تازه ترین محصولات عطاری</span>
+      </p>
+    </div>
+  </div>
+</div>
