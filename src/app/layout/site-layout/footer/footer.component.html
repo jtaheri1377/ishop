@@ -1,21 +1,45 @@
-<div class="w-full bg-white p-1 md:px-36">
-  <!-- symbols -->
-  <div class="w-full h-fit flex flex-wrap">
-    <div class="w-24 aspect-square p-4 flex flex-col items center">
-      <i class="bi bi-calendar2-day-fill text-[36px]"></i>
-      <p>ضمانت 7 روزه بازگشت پول</p>
-    </div>
-    <div class="w-24 aspect-square p-4 flex flex-col items center">
-      <i class="bi bi-speedometer2"></i>
-      <p>ضمانت 7 روزه بازگشت پول</p>
-    </div>
-    <div class="w-24 aspect-square p-4 flex flex-col items center">
-      <i class="bi bi-calendar2-day-fill"></i>
-      <p>ضمانت 7 روزه بازگشت پول</p>
-    </div>
-    <div class="w-24 aspect-square p-4 flex flex-col items center">
-      <i class="bi bi-calendar2-day-fill"></i>
-      <p>ضمانت 7 روزه بازگشت پول</p>
+<div class="footer w-full">
+  <div class="w-full  p-1 pt-5 md:px-36">
+    <!-- symbols -->
+    <div class="w-full h-fit grid grid-cols-2 sm:grid-cols-4">
+      <div class="w-fit p-4 m-auto flex flex-col items-center gap-4" *ngFor="let item of items">
+        <i class="bi bi-calendar2-day-fill text-[36px] text-red-400"></i>
+        <p class="text-center font-bold">ضمانت 7 روزه بازگشت پول</p>
+      </div>
     </div>
   </div>
+  <div class="w-full p-1 md:px-16">
+    <hr class="w-full h-[2px] bg-slate-100 my-2">
+    <!-- content -->
+    <div class="grid grid-cols-1 md:grid-cols-3 font-bold">
+      <div class="p-4 w-fit">
+        <strong class="text-lg">درباره ما</strong>
+        <ul>
+          <li class="text-justify text-sm">فروشگاه آی شاپ تمام تلاش خود را به کار گرفته تا محصولی با کیفیت و قیمت مناسب به خریداران محترم برساند.</li>
+        </ul>
+      </div>
+      <div class="p-4 w-fit m-auto">
+        <strong class="text-lg ">فروشگاه</strong>
+        <ul class="flex flex-col gap-4 pt-2">
+          <li class="text-justify text-sm cursor-pointer hover:scale-110 hover:text-red-600 transition ">ورود فروشنده</li>
+          <li class="text-justify text-sm cursor-pointer hover:scale-110 hover:text-red-600 transition">فروشنده اید</li>
+          <li class="text-justify text-sm cursor-pointer hover:scale-110 hover:text-red-600 transition">شرایط و ضوابط</li>
+          <li class="text-justify text-sm cursor-pointer hover:scale-110 hover:text-red-600 transition">امتیازات</li>
+        </ul>
+      </div>
+      <div class="p-4 w-fit m-auto">
+        <strong class="text-lg ">دسترسی سریع</strong>
+        <ul class="flex flex-col gap-4 pt-2">
+          <li class="text-justify text-sm cursor-pointer hover:scale-110 hover:text-red-600 transition ">پوشاک مردانه</li>
+          <li class="text-justify text-sm cursor-pointer hover:scale-110 hover:text-red-600 transition">پوشاک بانوان</li>
+          <li class="text-justify text-sm cursor-pointer hover:scale-110 hover:text-red-600 transition">پوشاک کودک و نوزاد</li>
+          <li class="text-justify text-sm cursor-pointer hover:scale-110 hover:text-red-600 transition">اکسسوری</li>
+          <li class="text-justify text-sm cursor-pointer hover:scale-110 hover:text-red-600 transition">تابستانه و زمستانه</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="w-full bg-slate-800 text-center h-14 flex items-center justify-center">
+  <p class="text-white font-medium text-base !m-0">همه امتیازات سایت متعلق به فروشگاه آی شاپ است</p>
 </div>

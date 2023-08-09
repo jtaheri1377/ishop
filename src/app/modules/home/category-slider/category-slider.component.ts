@@ -1,4 +1,4 @@
-import { ProductAd, CategoryAd } from './../../../models/product.model';
+import { CategoryAd } from './../../../shared/models/product.model';
 import { Component } from '@angular/core';
 
 @Component({

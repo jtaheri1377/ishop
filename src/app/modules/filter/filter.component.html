@@ -1,0 +1,94 @@
+<div class="w-full h-fit py-3 px-2 sm:px-7 md:px-14 lg:px-16">
+  <button mat-raised-button (click)="openBottomSheet()">Pick user</button>
+  <div class="w-full py-2">
+    <app-filter-box class="w-full"></app-filter-box>
+  </div>
+  <div class="w-full h-fit grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 items-center justify-center ">
+    <app-v-cart class="border hover:border-slate-400 transition-all sm:!w-fit" *ngFor="let item of items"></app-v-cart>
+  </div>
+</div>
+<button (click)="openBottomSheet()">asfsdfsadfsddddddddddddddddddddddddddddddddddd</button>
+
+<ng-template #FilterDialog>
+
+  <!-- price -->
+  <div dir="rtl" class="font-bold" *ngIf="priceFilter">
+    <div class="text-base p-2 ">
+      {{'قیمت'}}
+    </div>
+    <div class=" px-3 py-2">
+      <div class="labels w-full flex justify-start items-center gap-3 text-base">
+        <!-- Start number -->
+        <div class="flex items-center gap-2">
+          <label>از</label>
+          <div class="p-2  border rounded-md" [innerText]="minPrice  | number:'1.0'"></div>
+        </div>
+        <!-- End number -->
+        <div class="flex items-center gap-2">
+          <label>تا</label>
+          <div class="p-2 border rounded-md" [innerText]="maxPrice | number:'1.0'"></div>
+        </div>
+      </div>
+      <mat-slider class="!w-full" min="1000" max="500000000">
+        <input [value]="minPrice" matSliderStartThumb [(ngModel)]="minPrice">
+        <input [value]="maxPrice" matSliderEndThumb [(ngModel)]="maxPrice">
+      </mat-slider>
+    </div>
+
+  </div>
+  <!-- Brands -->
+  <div dir="rtl" class="font-bold" *ngIf="brandFilter">
+    <div class="text-base p-2 ">
+      {{'برند ها'}}
+    </div>
+    <ul class="px-3 py-2">
+      <li class="text-medium font-semibold py-1 flex items-center gap-2" *ngFor="let item of filter_items[1].items">
+        <mat-checkbox name="item" id="{{item.text}}">{{item.text}}</mat-checkbox>
+      </li>
+    </ul>
+
+  </div>
+
+  <!-- Colors -->
+  <div dir="rtl" class="font-bold" *ngIf="colorFilter">
+    <div class="text-base p-2 ">
+      {{'رنگ ها'}}
+    </div>
+    <ul class="px-3 py-2">
+      <li class="text-medium font-semibold py-1 flex items-center gap-2" *ngFor="let item of filter_items[3].items">
+        <mat-checkbox name="item" id="{{item.text}}">{{item.text}}</mat-checkbox>
+      </li>
+    </ul>
+
+  </div>
+
+  <!-- off -->
+  <div dir="rtl" class="!font-bold" *ngIf="offFilter">
+    <div class="text-base p-2 ">
+      {{'تخفیف و فروش ویژه' }}
+    </div>
+    <ul class="px-3 py-2">
+      <li class="text-medium font-semibold py-1 flex items-center gap-2" *ngFor="let item of filter_items[4].items">
+        <mat-checkbox class="font-bold" name="item" id="{{item.text}}">{{item.text}}</mat-checkbox>
+      </li>
+    </ul>
+  </div>
+
+  <!-- off -->
+  <div dir="rtl" class="!font-bold" *ngIf="availableFilter">
+    <div class="text-base p-2 ">
+      {{'موجودیت انبار'}}
+    </div>
+    <ul class="px-3 py-2">
+      <li class="text-medium font-semibold py-1 flex items-center gap-2" *ngFor="let item of filter_items[5].items">
+        <mat-checkbox name="item" id="{{item.text}}">{{item.text}}</mat-checkbox>
+      </li>
+    </ul>
+  </div>
+
+  <!-- footer -->
+  <div class="flex justify-end gap-2 w-full" dir="rtl">
+    <button mat-raised-button class="font-bold" (click)="CancelDialog()">انصراف</button>
+    <button mat-raised-button class="font-bold" color="primary" (click)="CancelDialog()">تأیید</button>
+  </div>
+</ng-template>

@@ -1,5 +1,5 @@
-import { ProductAd } from './../../../models/product.model';
 import { Component } from '@angular/core';
+import { ProductAd } from 'src/app/shared/models/product.model';
 
 @Component({
   selector: 'app-first-slider',

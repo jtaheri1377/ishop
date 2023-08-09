@@ -8,25 +8,26 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { SwiperModule } from 'swiper/angular';
-import SwiperCore, { Pagination, Navigation, Autoplay } from 'swiper';
+import SwiperCore, { Pagination, Navigation, Autoplay, Lazy, Virtual } from 'swiper';
 
-import { SharedRoutingModule } from './shared-routing.module';
 import { OverlayDirective } from './directives/overlay.directive';
-import { LocationComponent } from './components/location/location.component';
 import { VCartComponent } from './components/vertical-cart-slider/v-cart/v-cart.component';
 import { HCartComponent } from './components/horizontal-cart-slider/h-cart/h-cart.component';
 import { HorizontalCartSliderComponent } from './components/horizontal-cart-slider/horizontal-cart-slider.component';
 import { VerticalCartSliderComponent } from '../shared/components/vertical-cart-slider/vertical-cart-slider.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-SwiperCore.use([Pagination, Navigation, Autoplay]);
+SwiperCore.use([Pagination, Navigation, Autoplay, Lazy, Virtual]);
 
 
 @NgModule({
   declarations: [
     OverlayDirective,
-    LocationComponent,
     VCartComponent,
     HCartComponent,
     HorizontalCartSliderComponent,
@@ -34,7 +35,6 @@ SwiperCore.use([Pagination, Navigation, Autoplay]);
   ],
   imports: [
     CommonModule,
-    SharedRoutingModule,
     SwiperModule,
     MatToolbarModule,
     MatIconModule,
@@ -44,11 +44,15 @@ SwiperCore.use([Pagination, Navigation, Autoplay]);
     MatBadgeModule,
     MatRippleModule,
     MatMenuModule,
-    LeafletModule
+    MatCheckboxModule,
+    MatBottomSheetModule,
+    MatSliderModule,
+    LeafletModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   exports: [
     SwiperModule,
-    LocationComponent,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
@@ -56,13 +60,16 @@ SwiperCore.use([Pagination, Navigation, Autoplay]);
     MatTooltipModule,
     MatBadgeModule,
     MatSidenavModule,
+    MatSliderModule,
     LeafletModule,
     MatRippleModule,
+    MatCheckboxModule,
     MatMenuModule,
     VCartComponent,
-    HCartComponent,
     HorizontalCartSliderComponent,
     VerticalCartSliderComponent,
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class SharedModule { }

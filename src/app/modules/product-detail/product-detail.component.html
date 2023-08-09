@@ -1,0 +1,106 @@
+<div class="w-full h-fit bg-slate-100 sm:flex sm:h-fit flex-wrap justify-center items-start gap-3 sm:px-6 sm:py-5 md:px-10 md:py-5 lg:px-16">
+  <div class="w-full flex flex-col sm:flex-row justify-center items-start gap-3">
+    <!-- img-viewer -->
+    <div class="w-full sm:max-w-[250px] h-fit p-3 bg-white md:max-w-[400px] justify-end">
+      <div class="w-full aspect-square overflow-hidden rounded-md flex items-center !m-auto">
+        <img class="w-full h-full object-cover hover:scale-110 transition duration-300 " [src]="mainImage">
+      </div>
+      <swiper class="w-full py-2 my-2 bg-white" [slidesPerView]="'auto'" [navigation]="true">
+        <ng-template class="w-fit p-3" swiperSlide *ngFor="let img of images">
+          <div class="w-20 aspect-square rounded-md shadow overflow-hidden cursor-pointer shadow-md">
+            <img class=" h-full" [src]="img" (click)="mainImage=img">
+          </div>
+        </ng-template>
+      </swiper>
+    </div>
+    <!-- specify -->
+    <div class="w-full  sm:w-1/2 p-2 sm:min-w-[350px] sm:grow sm:m-0 my-2 font-bold bg-white h-fit ">
+      <div class="p-2 sm:grow sm:m-0 my-2 font-bold rounded max-h-[516px] bg-white">
+        <p class="text-slate-500 bg-slate-100 text-justify rounded-md p-3 !mb-[4px]">
+          <i class="bi bi-box-fill"></i>
+          ارسال رایگان به سراسر ایران با حداقل 500,000 تومان خرید
+        </p>
+        <hr class="w-full h-[2px] bg-slate-100">
+        <div class="flex justify-between">
+          <div class="p-1 ">
+            <p class="text-lg pt-2 pb-7 !m-0 ">
+              {{' بسته بندی کوچک 100 گرم بهبود دهنده'}}
+            </p>
+            <p class="text-medium text-slate-500 pt-4 !m-0">
+              <i class=" bi bi-star-fill text-amber-500"></i>
+              <span class="text-black"> 4.3 |</span>
+              <span> (23نظر)</span>
+            </p>
+            <div class="flex items-center gap-3 pt-4 ">
+
+              <div class="font-medium text-base text-slate-400 line-through !m-0">1.435.000</div>
+              <div class="w-fit h-fit py-[1px] px-1 bg-red-200 rounded">
+                <div class="font-medium text-base text-red-700 !m-0">16%</div>
+              </div>
+            </div>
+            <p class="text-[20px] text-black !m-0 pt-4">
+              <span> 1.435.000
+              </span>
+              <span class="text-xs">
+                تومان
+              </span>
+            </p>
+          </div>
+          <button mat-icon-button class="">
+            <mat-icon>bookmark_border</mat-icon>
+          </button>
+
+          <!-- <div class="w-48 font-bold border rounded-md flex justify-between items-center text-xl mt-2 text-red-600">
+          <button mat-icon-button class="">
+              <i class="bi bi-plus"></i>
+
+          </button>
+          <div class="text-slate-600">{{'13'}}</div>
+          <button mat-icon-button class="">
+            <i class="fa fa-trash"></i>
+          </button>
+          <!-- <div class="minus">-</div> -->
+          <!-- </div> -->
+
+        </div>
+
+        <div class="p-2 sm:m-0 my-2 font-bold bg-white h-fit">
+
+          <button mat-raised-button class="mt-10 w-full py-2 font-semibold !text-[14px]" color="accent">
+            <i class="bi bi-bag-plus-fill text-[18px]"></i>
+            افزودن به سبد خرید
+          </button>
+          <hr class="w-full h-[2px] bg-slate-100 mt-2">
+          <p class="text-slate-500 py-2 text-justify font-semibold">
+            <i class="bi bi-exclamation-circle-fill"></i>
+            درخواست مرجوع کردن کالا با دلیل "انصراف از خرید" تنها در صورتی قابل تایید است که کالا در شرایط اولیه باشد (در صورت پلمپ بودن،
+            کالا نباید باز شده باشد).
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="p-2 w-full sm:m-0 my-2 font-bold bg-white h-fit ">
+    <div class="text-xl drop-shadow p-4 text-center ">
+      <i class="fa fa-list"></i>
+      مشخصات
+    </div>
+    <ul class="w-full h-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+      <li class="flex justify-between items-center text-medium rounded-md bg-slate-100 p-4 mx-2 my-3" *ngFor="let specify of specifies">
+        <div class="text-red-900">
+          <i class="fa fa-check-square"></i>
+          {{specify.label}}
+        </div>
+        <div class="value">
+          {{specify.value}}
+        </div>
+      </li>
+    </ul>
+
+  </div>
+  <div class="w-full sm:my-8 my-2 font-bold h-fit ">
+    <app-comments></app-comments>
+  </div>
+  <app-vertical-cart-slider class="w-full m-10"></app-vertical-cart-slider>
+</div>

@@ -1,4 +1,5 @@
-<div class="h-fit my-3 sm:my-5 md:my-10">
+<!-- my-3 sm:my-5 md:my-10 -->
+<div class="w-full h-fit ">
   <!-- Heading -->
   <div class="w-full h-fit flex justify-between items-center mb-3">
     <!-- title -->
@@ -12,8 +13,8 @@
     </div>
   </div>
   <swiper class="w-full h-fit" slidesPerView="auto" [navigation]="true">
-    <ng-template swiperSlide class="w-fit h-fit px-1" *ngFor="let item of items">
-      <app-v-cart></app-v-cart>
+    <ng-template swiperSlide class="w-fit sm:w-56  h-fit px-1" *ngFor="let item of items" lazy="true">
+      <app-v-cart class="w-full" loading="lazy"></app-v-cart>
     </ng-template>
   </swiper>
 </div>

@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
 
+  items=[1,2,3,4];
+
 }

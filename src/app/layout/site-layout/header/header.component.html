@@ -6,7 +6,7 @@
   <div class="w-full max-w-[400px] mr-2  transition-all flex flex-col jutify-center items-center gap-2">
     <div class="sm:relative flex justify-between items-center rounded  sm:bg-slate-50  w-full px-2 mx-1 sm:mx-3">
       <div class="w-full h-fit flex items-center" (focusout)="$event.stopPropagation()" (mouseleave)="suggestionBox=false;"  (click)="$event.stopPropagation();suggestionBox=true;">
-        <button mat-icon-button matTooltip="جستجو">
+        <button mat-icon-button matTooltip="جستجو" (click)="suggestionBox=true;">
           <mat-icon class="cursor-pointer pr-2">search</mat-icon>
         </button>
         <input class="!hidden sm:!block w-full mx-1 placeholder:text-slate-400 placeholder:text-sm
@@ -15,7 +15,7 @@
      style="background:transparent;">
       </div>
       <!-- suggestion Box  -->
-      <div overlay [isOpen]="suggestionBox" class="w-screen sm:w-full h-screen sm:h-fit shadow  !z-20 p-3 absolute top-0 sm:top-12 left-0 sm:start-0 bg-white
+      <div overlay [isOpen]="suggestionBox" class="w-screen sm:w-full h-screen sm:rounded-b-lg sm:h-fit shadow  !z-20 p-3 absolute top-0 sm:top-12 left-0 sm:start-0 bg-white
       " (mouseenter)="suggestionBox = true;" (click)="$event.stopPropagation();"  (mouseleave)="$event.stopPropagation();suggestionBox=false;">
         <button mat-flat-button class="sm:!hidden " (click)="suggestionBox=false">
           <mat-icon>keyboard_arrow_right</mat-icon>

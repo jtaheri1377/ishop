@@ -8,6 +8,7 @@ import { MainComponent } from './site-layout/main/main.component';
 import { FooterComponent } from './site-layout/footer/footer.component';
 import { SiteLayoutComponent } from './site-layout/site-layout.component';
 import { SuggestionBoxComponent } from './site-layout/header/suggestion-box/suggestion-box.component';
+import { LocationComponent } from 'src/app/layout/site-layout/header/location/location.component';
 
 
 
@@ -16,6 +17,7 @@ import { SuggestionBoxComponent } from './site-layout/header/suggestion-box/sugg
     HeaderComponent,
     MainComponent,
     FooterComponent,
+    LocationComponent,
     SiteLayoutComponent,
     SuggestionBoxComponent
   ],

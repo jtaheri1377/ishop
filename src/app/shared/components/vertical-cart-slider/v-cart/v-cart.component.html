@@ -1,9 +1,9 @@
-<div class="w-60 h-fit" dir="rtl">
-  <div class="w-full h-full p-3 bg-white group">
+<div class="!w-full h-fit" dir="rtl">
+  <div class="!w-full h-full p-3 bg-white group flex sm:flex-col gap-2">
     <!-- picture -->
-    <div class="w-full relative">
+    <div class="sm:w-full relative">
       <!-- menu-icon -->
-      <mat-icon [matMenuTriggerFor]="menu" class=" absolute top-0 left-0 w-fit h-fit cursor-pointer bg-white opacity-0 group-hover:opacity-100 transition">more_horize</mat-icon>
+      <mat-icon [matMenuTriggerFor]="menu" class="absolute top-0 left-0 w-fit h-fit cursor-pointer bg-white lg:opacity-0 group-hover:opacity-100 transition">more_horize</mat-icon>
       <mat-menu xPosition="before" #menu="matMenu">
         <button mat-menu-item>
           <mat-icon>bookmark_border</mat-icon>
@@ -11,47 +11,49 @@
         </button>
       </mat-menu>
       <img src="https://dkstatics-public.digikala.com/digikala-adservice-banners/4f94eb14da9ca338a5d3e8d2d905c0b118e9d2b7_1690180181.jpg?x-oss-process=image/quality,q_95/format,webp"
-        alt="" class="w-full object-cover aspect-square">
+        alt="" class="w-full object-cover aspect-square max-w-[162px] sm:max-w-[none]">
     </div>
-    <!-- product-content -->
-    <div class="w-full mt-2 h-fit flex flex-col items-start gap-2">
-      <p class="w-full px-[1px] overflow-hidden text-sm font-semibold !m-0 ellipsis-my-text-in-two-line hover:text-red-500 transition-all cursor-pointer">
+    <div class="w-full h-fit flex flex-col justify-between items-between">
+      <!-- product-content -->
+      <div class="w-full mt-2 h-fit flex flex-col items-start gap-2">
+        <p class="w-full px-[1px] overflow-hidden text-sm font-semibold !m-0 ellipsis-my-text-in-two-line hover:text-red-500 transition-all cursor-pointer">
 
-        ست تیشرت شلوار مردانه Nike مدل Hamid
+          ست تیشرت شلوار مردانه Nike مدل Hamid
 
-      </p>
-      <div class="w-full h-fit font-medium text-xs text-slate-500  ellipsis-my-text-in-one-line">
-        <i class="text-sm bi bi-shop text-slate-700"></i>
-        <span> تهران </span> |
-        <span class="cursor-pointer">فروشگاه خشکبار صدرزاده</span>
-      </div>
-      <div class="w-full h-fit font-semibold text-xs text-slate-500">
-        <i class="text-sm bi bi-star-fill text-amber-500 text-slate-700"></i>
-        <span class="text-black text-[13px]"> 4.3 |</span>
-        <span> (23نظر)</span>
-      </div>
-    </div>
-    <!-- product-footer -->
-    <div class="w-full h-[76px] mt-4 flex justify-between items-center">
-      <button matRipple class="w-9 !aspect-square rounded-md flex items-center justify-center bg-cyan-400 hover:bg-cyan-500 shadow-lg"
-        color="accent">
-        <mat-icon class="mat-18">add_icon</mat-icon>
-      </button>
-      <div class="w-fit h-full flex flex-col justify-center items-end gap-3">
-        <!-- off and Undiscounted price -->
-        <div class="flex items-center gap-1">
-
-          <div class="font-medium text-xs text-slate-400 line-through !m-0">1.435.000</div>
-          <div class="w-fit h-fit py-[1px] px-1 bg-red-200 rounded">
-            <div class="font-medium text-sm text-red-700 !m-0">16%</div>
-          </div>
+        </p>
+        <div class="w-full h-fit font-medium text-xs text-slate-500  ellipsis-my-text-in-one-line">
+          <i class="text-sm bi bi-shop text-slate-700"></i>
+          <span> تهران </span> |
+          <span class="cursor-pointer">فروشگاه خشکبار صدرزاده</span>
         </div>
-        <div class="font-bold text-[16px] text-black !m-0">
-          <span> 1.435.000
-          </span>
-          <span class="text-xs">
-            تومان
-          </span>
+        <div class="w-full h-fit font-semibold text-xs text-slate-500">
+          <i class="text-sm bi bi-star-fill text-amber-500 text-slate-700"></i>
+          <span class="text-black text-[13px]"> 4.3 |</span>
+          <span> (23نظر)</span>
+        </div>
+      </div>
+      <!-- product-footer -->
+      <div class="w-full sm:h-[76px] mt-4 flex flex-row-reverse sm:flex-row justify-between items-center">
+        <button matRipple class="w-9 !aspect-square rounded-md flex items-center justify-center bg-cyan-400 hover:bg-cyan-500 shadow-lg"
+          color="accent">
+          <mat-icon class="mat-18">add_icon</mat-icon>
+        </button>
+        <div class="w-fit h-full flex flex-col justify-center items-end gap-3">
+          <!-- off and Undiscounted price -->
+          <div class="flex items-center gap-1">
+
+            <div class="font-medium text-xs text-slate-400 line-through !m-0">1.435.000</div>
+            <div class="w-fit h-fit py-[1px] px-1 bg-red-200 rounded">
+              <div class="font-medium text-sm text-red-700 !m-0">16%</div>
+            </div>
+          </div>
+          <div class="font-bold text-[16px] text-black !m-0">
+            <span> 1.435.000
+            </span>
+            <span class="text-xs">
+              تومان
+            </span>
+          </div>
         </div>
       </div>
     </div>

@@ -1,8 +1,8 @@
-import { LayoutService } from './../../../layout/service/layout.service';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { MapOptions, tileLayer, latLng, map, Icon } from 'leaflet';
 import * as L from 'leaflet';
 import { Subscription } from 'rxjs';
+import { LayoutService } from 'src/app/layout/service/layout.service';
 
 @Component({
   selector: 'app-location',
