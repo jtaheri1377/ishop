@@ -1,0 +1,24 @@
+<div #top id="top"></div>
+<div class="w-full h-fit py-3 px-2 sm:px-7 md:px-14 lg:px-16">
+  <div class="h-full my-3 sm:my-5 md:my-10 relative">
+    <!-- Heading -->
+    <div class="w-full h-fit flex justify-start items-center mx-2 mb-6">
+      <!-- title -->
+      <div class="font-bold text-lg text-black">
+        <i class="bi bi-cart3"></i>
+        {{'سبد خرید'}}
+
+      </div>
+    </div>
+    <app-loading overlay [isOpen]="isLoading" class="w-full h-fit m-auto top-36 left-0 !z-10 " *ngIf="isLoading"></app-loading>
+    <!-- Content -->
+    <div class="w-full h-full grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 items-center justify-center gap-[2px] sm:gap-3">
+      <ng-container *ngIf="items.length>0">
+        <app-v-cart [showBasketAmount]="true" [item]="item" class="w-full h-full" *ngFor="let item of items"></app-v-cart>
+      </ng-container>
+    </div>
+    <div *ngIf="items.length==0&&!isLoading" class="h-[calc(50vh)] flex justify-center items-center m-auto w-80">
+      <img src="./../../../assets/images/nothings_found.png" alt="" class="">
+    </div>
+  </div>
+</div>

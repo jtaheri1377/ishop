@@ -1,17 +1,14 @@
-<div class="w-full h-fit py-3 px-2 sm:px-7 md:px-14 lg:px-16">
+<div class="w-full h-fit py-3 pb-12 px-2 sm:px-7 md:px-14 lg:px-16 relative">
   <app-first-slider></app-first-slider>
   <app-category-slider class="p-10"></app-category-slider>
-  <app-vertical-cart-slider class="m-10"></app-vertical-cart-slider>
-  <app-vertical-cart-slider class="m-10"></app-vertical-cart-slider>
-  <app-vertical-cart-slider class="m-10"></app-vertical-cart-slider>
-  <app-horizontal-cart-slider></app-horizontal-cart-slider>
+  <div class="w-full h-fit flex flex-col gap-3">
+    <app-vertical-cart-slider [showBasketAmount]="false" tableName="within_week" [items]="weekItems" class="!h-fit py-10" title="پرفروش های هفته"></app-vertical-cart-slider>
+    <app-vertical-cart-slider [showBasketAmount]="false" tableName="within_month" [items]="monthItems" class="!h-fit py-10" title="پرفروش‌های 30 روز گذشته"></app-vertical-cart-slider>
+    <app-vertical-cart-slider [showBasketAmount]="false" tableName="best_seller" [items]="bestSellerItems" class="h-fit py-10" title="محصولات پرفروش"></app-vertical-cart-slider>
+  </div>
+  <app-horizontal-cart-slider title="تابستانه" tableName="summer" [items]="summer"></app-horizontal-cart-slider>
 </div>
-هرکه را شد همت عالی پدید
+<app-loading overlay [isOpen]="isLoading" class="w-full h-fit m-auto top-36 left-0 !z-10 " *ngIf="isLoading"></app-loading>
 
-هرچه جست آن چیز، حالی شد پدید
-
-هرکه را یک ذره همت داد دست
-
-کرد او خورشید را زان ذره پست
-
-نقطه ملک جهان ها همت است
+هرکه را شد همت عالی پدید هرچه جست آن چیز، حالی شد پدید هرکه را یک ذره همت داد دست کرد او خورشید را زان ذره پست نقطه ملک جهان
+ها همت است

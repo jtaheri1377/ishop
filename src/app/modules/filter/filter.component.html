@@ -1,13 +1,20 @@
-<div class="w-full h-fit py-3 px-2 sm:px-7 md:px-14 lg:px-16">
-  <button mat-raised-button (click)="openBottomSheet()">Pick user</button>
-  <div class="w-full py-2">
-    <app-filter-box class="w-full"></app-filter-box>
-  </div>
-  <div class="w-full h-fit grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 items-center justify-center ">
-    <app-v-cart class="border hover:border-slate-400 transition-all sm:!w-fit" *ngFor="let item of items"></app-v-cart>
-  </div>
+<div class="w-full h-fit min-h-[300px] py-3 px-2 sm:px-7 md:px-14 lg:px-16 relative ">
+  <app-loading overlay [isOpen]="isLoading" class="w-full h-fit m-auto top-36 left-0 !z-10 " *ngIf="isLoading"></app-loading>
+  <!-- <ng-container *ngIf="items.length>0&&isLoading"> -->
+    <!-- <div class="w-full relative"></div>         -->
+    <button mat-raised-button (click)="openBottomSheet()">Pick user</button>
+    <div class="w-full py-2 !z[-1]">
+      <app-filter-box *ngIf="items.length>0" class="w-full"></app-filter-box>
+      <div *ngIf="items.length==0&&!isLoading" class="h-[calc(50vh)] flex justify-center items-center m-auto w-80">
+        <img src="./../../../assets/images/nothings_found.png" alt="" class="">
+      </div>
+    </div>
+    <div class="w-full h-fit grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 items-center justify-center ">
+      <app-v-cart [item]="item" class="w-full h-fit border hover:border-slate-400 transition-all" *ngFor="let item of items"></app-v-cart>
+    </div>
+  <!-- </ng-container> -->
 </div>
-<button (click)="openBottomSheet()">asfsdfsadfsddddddddddddddddddddddddddddddddddd</button>
+
 
 <ng-template #FilterDialog>
 

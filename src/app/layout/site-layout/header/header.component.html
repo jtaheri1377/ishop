@@ -1,28 +1,35 @@
-<mat-toolbar  class="toolbar relative !h-fit !py-2 !px-3 sm:!px-4" dir="rtl" (focusout)="suggestionBox=false;">
+<mat-toolbar class="toolbar relative !h-fit !py-2 !px-3 sm:!px-4 !bg-[rgb(210,220,250)]" dir="rtl" (focusout)="suggestionBox=false;">
   <button mat-icon-button class="hover:rotate-180 transition" (click)="toggleSidenav()" aria-label="Example icon-button with menu icon">
     <mat-icon>menu</mat-icon>
   </button>
-  <span>My App</span>
+  <span class="cursor-pointer bg-slate-300 rounded-md p-2" [routerLink]="['./home']">I Shop</span>
   <div class="w-full max-w-[400px] mr-2  transition-all flex flex-col jutify-center items-center gap-2">
     <div class="sm:relative flex justify-between items-center rounded  sm:bg-slate-50  w-full px-2 mx-1 sm:mx-3">
-      <div class="w-full h-fit flex items-center" (focusout)="$event.stopPropagation()" (mouseleave)="suggestionBox=false;"  (click)="$event.stopPropagation();suggestionBox=true;">
-        <button mat-icon-button matTooltip="جستجو" (click)="suggestionBox=true;">
+      <form #searchForm="ngForm" (submit)="onSearch(searchForm)" autocomplete="off" class="w-full h-fit flex items-center" (focusout)="$event.stopPropagation()"
+        (mouseleave)="suggestionBox=false;" (click)="$event.stopPropagation();suggestionBox=true;">
+        <button mat-icon-button matTooltip="جستجو" type="button" (click)="suggestionBox=true;">
           <mat-icon class="cursor-pointer pr-2">search</mat-icon>
         </button>
-        <input class="!hidden sm:!block w-full mx-1 placeholder:text-slate-400 placeholder:text-sm
-    " placeholder="جستجو در فروشگاه" type="text
-    "
-     style="background:transparent;">
-      </div>
+        <input [ngModel]="suggestionItem" name="searchValue" class="text-sm font-bold !hidden sm:!block w-full mx-1 placeholder:text-slate-400 placeholder:text-sm
+           " placeholder="جستجو در فروشگاه" type="text
+           " style="background:transparent;">
+      </form>
       <!-- suggestion Box  -->
       <div overlay [isOpen]="suggestionBox" class="w-screen sm:w-full h-screen sm:rounded-b-lg sm:h-fit shadow  !z-20 p-3 absolute top-0 sm:top-12 left-0 sm:start-0 bg-white
-      " (mouseenter)="suggestionBox = true;" (click)="$event.stopPropagation();"  (mouseleave)="$event.stopPropagation();suggestionBox=false;">
+      " (mouseenter)="suggestionBox = true;" (click)="$event.stopPropagation();" (mouseleave)="$event.stopPropagation();suggestionBox=false;">
         <button mat-flat-button class="sm:!hidden " (click)="suggestionBox=false">
           <mat-icon>keyboard_arrow_right</mat-icon>
-          <span class="text-sm font-bold" >بازگشت</span>
+          <span class="text-sm font-bold">بازگشت</span>
         </button>
+
+        <form #searchForm2="ngForm" (submit)="onSearch(searchForm2)" autocomplete="off" class="sm:!hidden rounded shadow p-2 my-2 bg-white border w-full h-fit flex items-center"
+          (focusout)="$event.stopPropagation()" (click)="$event.stopPropagation();suggestionBox=true;">
+          <input [ngModel]="suggestionItem" name="searchValue" class="text-sm font-bold sm:!block w-full mx-1 placeholder:text-slate-400 placeholder:text-sm
+        " placeholder="جستجو در فروشگاه" type="text
+        " style="background:transparent;">
+        </form>
         <hr class="w-full h-[2px] my-2 bg-slate-200 sm:hidden">
-        <app-suggestion-box class="w-full h-fit"></app-suggestion-box>
+        <app-suggestion-box (selectImg)="onSelectImg()" (selectItem)="onSelectSuggestions($event)" class="w-full h-fit"></app-suggestion-box>
       </div>
       <!-- End of suggestion Box  -->
 
@@ -39,7 +46,7 @@
   <button mat-icon-button class=" " (click)="locationBox=!locationBox" matTooltip="محل تحویل کالا">
     <mat-icon>location_on</mat-icon>
   </button>
-  <button mat-icon-button class="example-icon" matTooltip="سبد خرید">
-    <mat-icon matBadge="0" matBadgePosition="before" matBadgeColor="accent">shopping_cart</mat-icon>
+  <button mat-icon-button [routerLink]="['/basket']" class="example-icon" matTooltip="سبد خرید">
+    <mat-icon [matBadge]="basketAmount" matBadgePosition="before" matBadgeColor="accent">shopping_cart</mat-icon>
   </button>
 </mat-toolbar>

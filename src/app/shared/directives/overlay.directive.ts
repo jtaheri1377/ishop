@@ -9,6 +9,7 @@ export class OverlayDirective implements DoCheck {
   constructor(private elref: ElementRef, private renderer: Renderer2) { }
 
   ngDoCheck(): void {
+      this.renderer.setStyle(this.elref.nativeElement, 'position', 'absolute');    
     if (!this.isOpen) {
       // debugger;
       // this.renderer.setStyle(this.elref.nativeElement,'position', 'static');
@@ -24,7 +25,7 @@ export class OverlayDirective implements DoCheck {
       // this.renderer.setStyle(this.elref.nativeElement,'position', 'fixed');
       this.renderer.setStyle(this.elref.nativeElement, 'opacity', '1');
       this.renderer.setStyle(this.elref.nativeElement, 'visibility', 'visible');
-      this.renderer.setStyle(this.elref.nativeElement, 'zIndex', '20 !important');
+      this.renderer.setStyle(this.elref.nativeElement, 'zIndex', '1000 !important');
       this.renderer.setStyle(this.elref.nativeElement, 'transition', 'all 0.2s ease-in-out');
 
     }

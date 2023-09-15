@@ -1,6 +1,7 @@
 .footer{
-  background: url("./../../../../assets/images/pngtree-beautiful-white-wall-made-of-cubes-picture-image_2710220.jpg");
+  /* background: url("./../../../../assets/images/pngtree-beautiful-white-wall-made-of-cubes-picture-image_2710220.jpg"); */
   opacity: 1;
+  background-color: rgb(214, 228, 246);
   /* rgba(82, 78, 78, 0.479); */
   position: relative;
   display: block;
@@ -8,8 +9,8 @@
 }
 .footer::before{
   content: "";
-  background: url("./../../../../assets/images/pngtree-beautiful-white-wall-made-of-cubes-picture-image_2710220.jpg"),
-   rgba(105, 94, 94, 0.472) !important;
+  /* background: url("./../../../../assets/images/pngtree-beautiful-white-wall-made-of-cubes-picture-image_2710220.jpg"), */
+   /* rgba(105, 94, 94, 0.472) !important; */
   opacity: 0.1;
   left: 0;
   top: 0;

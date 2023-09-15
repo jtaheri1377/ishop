@@ -3,18 +3,19 @@
   <!-- Heading -->
   <div class="w-full h-fit flex justify-between items-center mb-3">
     <!-- title -->
-    <div class="font-bold text-base text-black">
-      پرفروش‌های 30 روز گذشته
+    <div class="h-fit font-bold text-base text-black">
+      {{title}}
+      <!-- پرفروش‌های 30 روز گذشته -->
     </div>
     <!-- see all -->
-    <div class="font-bold text-cyan-700 text-medium cursor-pointer">
+    <div *ngIf="seeAllVisible"  [routerLink]="['explore/','t', tableName]" class="h-fit font-bold text-cyan-700 text-medium cursor-pointer">
       <span>مشاهده همه</span>
       <i class="bi bi-caret-left-fill"></i>
     </div>
   </div>
-  <swiper class="w-full h-fit" slidesPerView="auto" [navigation]="true">
-    <ng-template swiperSlide class="w-fit sm:w-56  h-fit px-1" *ngFor="let item of items" lazy="true">
-      <app-v-cart class="w-full" loading="lazy"></app-v-cart>
+  <swiper [config]="config" class="w-full h-fit" [navigation]="true">
+    <ng-template swiperSlide class="w-full sm:w-56  h-fit px-1" *ngFor="let item of items " lazy="true">
+      <app-v-cart [showBasketAmount]="showBasketAmount" [item]="item" class="w-full h-fit" loading="lazy"></app-v-cart>
     </ng-template>
   </swiper>
 </div>

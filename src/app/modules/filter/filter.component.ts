@@ -1,18 +1,26 @@
-import { Component, ViewChild, TemplateRef } from '@angular/core';
+import { switchMap } from 'rxjs/internal/operators/switchMap';
+import { forkJoin } from 'rxjs/internal/observable/forkJoin';
+import { HttpService } from './../../core/services/http.service';
+import { takeUntil, map, mergeMap, last, pairwise } from 'rxjs/Operators';
+import { FilterService } from './service/filter.service';
+import { SliderItem } from './../../shared/models/product.model';
+import { Component, ViewChild, TemplateRef, OnInit } from '@angular/core';
 import {
   MatBottomSheet,
   MatBottomSheetModule,
   MatBottomSheetRef,
 } from '@angular/material/bottom-sheet';
+import { Subject, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.css']
 })
-export class FilterComponent {
+export class FilterComponent implements OnInit {
   @ViewChild('FilterDialog') filterDialog = {} as TemplateRef<any>;
   dialogRef: any;
+  destroyed: Subject<void> = new Subject();
   brandFilter: boolean = false;
   colorFilter: boolean = false;
   priceFilter: boolean = true;
@@ -20,35 +28,56 @@ export class FilterComponent {
   availableFilter: boolean = true;
   minPrice: number = 12000;
   maxPrice: number = 1500000;
-  items = [1, 2, 2, 2, 32132, 1, 321, 321, 3213516, , 5641, 654, 165, 41, 6541, 56]
+  isLoading: boolean = false;
+  items: SliderItem[] = [];
+  constructor(
+    private _bottomSheet: MatBottomSheet,
+    private filterServ: FilterService,
+    private http: HttpService
+  ) { }
 
-  constructor(private _bottomSheet: MatBottomSheet) { }
+
+  ngOnInit(): void {
+
+    this.isLoading = true;
+    this.filterServ.filterValue.pipe(
+      switchMap((searchVal: string) => {
+
+        this.isLoading = true;
+        if (searchVal.trim() !== "")
+          return this.http.filterContain('explore_products', 'name', searchVal)
+        else
+          return this.http.getAll('explore_products');
+      }),
+      takeUntil(this.destroyed)
+    )
+      .subscribe((res: any) => {
+        this.items = res;
+        this.isLoading = false;
+      }, (err: any) => {
+        this.isLoading = false;
+      })
+
+  }
+
+  ngOnDestroy(): void {
+    this.destroyed.next();
+  }
 
   openBottomSheet(): void {
     this._bottomSheet.open(this.filterDialog);
-
-    // .subscribe((result: any) => {
-    //   console.log('The City dialog was closed.');
-    // });
   }
 
   CancelDialog() {
     this._bottomSheet.dismiss();
   }
 
-  onSliderChange(event: any) {
-    console.log(event)
-  }
-
-
   onFilterItemClicked(item: any, Unchoose: boolean) {
     if (!Unchoose) {
       let output = this.filter_items[item.id];
-      // this.onChoose.emit(output);
-    }
-    else {
+    } else
       item.choosen = '';
-    }
+
   }
 
   filter_items: any = [

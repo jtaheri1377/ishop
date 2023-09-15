@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Slider_H_Item } from './../../../models/product.model';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-h-cart',
@@ -7,10 +8,11 @@ import { Component } from '@angular/core';
 })
 export class HCartComponent {
 
+  @Input() item: Slider_H_Item;
 
-  images: string[] = [
-    "https://dkstatics-public.digikala.com/digikala-adservice-banners/4f94eb14da9ca338a5d3e8d2d905c0b118e9d2b7_1690180181.jpg?x-oss-process=image/quality,q_95/format,webp",
-    "https://dkstatics-public.digikala.com/digikala-adservice-banners/4f94eb14da9ca338a5d3e8d2d905c0b118e9d2b7_1690180181.jpg?x-oss-process=image/quality,q_95/format,webp",
-    "https://dkstatics-public.digikala.com/digikala-adservice-banners/4f94eb14da9ca338a5d3e8d2d905c0b118e9d2b7_1690180181.jpg?x-oss-process=image/quality,q_95/format,webp",
-  ]
+  // images: string[] = [
+  //   "https://dkstatics-public.digikala.com/digikala-adservice-banners/4f94eb14da9ca338a5d3e8d2d905c0b118e9d2b7_1690180181.jpg?x-oss-process=image/quality,q_95/format,webp",
+  //   "https://dkstatics-public.digikala.com/digikala-adservice-banners/4f94eb14da9ca338a5d3e8d2d905c0b118e9d2b7_1690180181.jpg?x-oss-process=image/quality,q_95/format,webp",
+  //   "https://dkstatics-public.digikala.com/digikala-adservice-banners/4f94eb14da9ca338a5d3e8d2d905c0b118e9d2b7_1690180181.jpg?x-oss-process=image/quality,q_95/format,webp",
+  // ]
 }

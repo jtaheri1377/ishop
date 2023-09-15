@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -13,7 +14,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { SwiperModule } from 'swiper/angular';
-import SwiperCore, { Pagination, Navigation, Autoplay, Lazy, Virtual } from 'swiper';
+import SwiperCore, { Pagination, Navigation, Autoplay, Virtual, Lazy } from 'swiper';
 
 import { OverlayDirective } from './directives/overlay.directive';
 import { VCartComponent } from './components/vertical-cart-slider/v-cart/v-cart.component';
@@ -21,6 +22,7 @@ import { HCartComponent } from './components/horizontal-cart-slider/h-cart/h-car
 import { HorizontalCartSliderComponent } from './components/horizontal-cart-slider/horizontal-cart-slider.component';
 import { VerticalCartSliderComponent } from '../shared/components/vertical-cart-slider/vertical-cart-slider.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoadingComponent } from './components/loading/loading.component';
 
 SwiperCore.use([Pagination, Navigation, Autoplay, Lazy, Virtual]);
 
@@ -31,11 +33,13 @@ SwiperCore.use([Pagination, Navigation, Autoplay, Lazy, Virtual]);
     VCartComponent,
     HCartComponent,
     HorizontalCartSliderComponent,
-    VerticalCartSliderComponent
+    VerticalCartSliderComponent,
+    LoadingComponent
   ],
   imports: [
     CommonModule,
     SwiperModule,
+    RouterModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
@@ -70,6 +74,7 @@ SwiperCore.use([Pagination, Navigation, Autoplay, Lazy, Virtual]);
     VerticalCartSliderComponent,
     FormsModule,
     ReactiveFormsModule,
+    LoadingComponent
   ]
 })
 export class SharedModule { }

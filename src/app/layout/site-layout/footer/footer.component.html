@@ -3,8 +3,8 @@
     <!-- symbols -->
     <div class="w-full h-fit grid grid-cols-2 sm:grid-cols-4">
       <div class="w-fit p-4 m-auto flex flex-col items-center gap-4" *ngFor="let item of items">
-        <i class="bi bi-calendar2-day-fill text-[36px] text-red-400"></i>
-        <p class="text-center font-bold">ضمانت 7 روزه بازگشت پول</p>
+        <i class="bi bi-{{item.icon}} text-[36px] text-red-400"></i>
+        <p class="text-center font-bold">{{item.text}}</p>
       </div>
     </div>
   </div>
@@ -15,7 +15,11 @@
       <div class="p-4 w-fit">
         <strong class="text-lg">درباره ما</strong>
         <ul>
-          <li class="text-justify text-sm">فروشگاه آی شاپ تمام تلاش خود را به کار گرفته تا محصولی با کیفیت و قیمت مناسب به خریداران محترم برساند.</li>
+          <li class="text-justify text-sm">
+            فروشگاه آی شاپ تمام تلاش خود را به کار گرفته تا محصولی با کیفیت و قیمت مناسب به خریداران محترم برساند. فروشگاه آی شاپ تمام
+            تلاش خود را به کار گرفته تا محصولی با کیفیت و قیمت مناسب به خریداران محترم برساند. فروشگاه آی شاپ تمام تلاش خود
+            را به کار گرفته تا محصولی با کیفیت و قیمت مناسب به خریداران محترم برساند.
+          </li>
         </ul>
       </div>
       <div class="p-4 w-fit m-auto">
@@ -30,11 +34,11 @@
       <div class="p-4 w-fit m-auto">
         <strong class="text-lg ">دسترسی سریع</strong>
         <ul class="flex flex-col gap-4 pt-2">
-          <li class="text-justify text-sm cursor-pointer hover:scale-110 hover:text-red-600 transition ">پوشاک مردانه</li>
-          <li class="text-justify text-sm cursor-pointer hover:scale-110 hover:text-red-600 transition">پوشاک بانوان</li>
-          <li class="text-justify text-sm cursor-pointer hover:scale-110 hover:text-red-600 transition">پوشاک کودک و نوزاد</li>
-          <li class="text-justify text-sm cursor-pointer hover:scale-110 hover:text-red-600 transition">اکسسوری</li>
-          <li class="text-justify text-sm cursor-pointer hover:scale-110 hover:text-red-600 transition">تابستانه و زمستانه</li>
+          <li class="text-justify text-sm cursor-pointer hover:scale-110 hover:text-red-600 transition" [routerLink]="['/explore','00']">پوشاک مردانه</li>
+          <li class="text-justify text-sm cursor-pointer hover:scale-110 hover:text-red-600 transition" [routerLink]="['/explore','01']">پوشاک بانوان</li>
+          <li class="text-justify text-sm cursor-pointer hover:scale-110 hover:text-red-600 transition" [routerLink]="['/explore','02']">پوشاک کودک و نوزاد</li>
+          <li class="text-justify text-sm cursor-pointer hover:scale-110 hover:text-red-600 transition" [routerLink]="['/explore','08']">اکسسوری</li>
+          <li class="text-justify text-sm cursor-pointer hover:scale-110 hover:text-red-600 transition" [routerLink]="['/explore','07']">لباس راحتی</li>
         </ul>
       </div>
     </div>

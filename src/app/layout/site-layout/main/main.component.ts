@@ -1,5 +1,7 @@
+import { HttpService } from './../../../core/services/http.service';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { LayoutService } from './../../service/layout.service';
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-main',
@@ -8,12 +10,9 @@ import { Component, ViewChild } from '@angular/core';
 })
 export class MainComponent {
   @ViewChild('sidenav') drawer: any;
-
   constructor(private LayoutServ: LayoutService) { }
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
     this.LayoutServ.toggleDrawer.subscribe(res => this.drawer.toggle())
-
   }
+
 }

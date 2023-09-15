@@ -1,15 +1,19 @@
 <div class="w-full h-fit py-3 px-2 sm:px-7 md:px-14 lg:px-16">
-  <div class="h-fit my-3 sm:my-5 md:my-10">
+  <div class="h-fit my-3 sm:my-5 md:my-10 relative">
     <!-- Heading -->
     <div class="w-full h-fit flex justify-start items-center mx-2 mb-6">
       <!-- title -->
       <div class="font-bold text-lg text-black">
-        پرفروش‌های 30 روز گذشته
+        <i class="bi bi-grid-fill"></i>
+        {{title}}
       </div>
     </div>
+    <app-loading overlay [isOpen]="isLoading" class="w-full h-fit m-auto top-36 left-0 !z-10 " *ngIf="isLoading"></app-loading>
     <!-- Content -->
-    <div class="w-full h-fit grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 items-center justify-center gap-[2px] sm:gap-3">
-      <app-v-cart class="sm:!w-fit"  *ngFor="let item of items" ></app-v-cart>
+    <div class="w-full h-fit grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 items-stretch justify-center gap-[2px] sm:gap-3">
+      <ng-container *ngIf="items">
+        <app-v-cart [item]="item" class="w-full" *ngFor="let item of items"></app-v-cart>
+      </ng-container>
     </div>
   </div>
 </div>

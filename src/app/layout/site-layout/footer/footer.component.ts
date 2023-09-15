@@ -7,6 +7,23 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
 
-  items=[1,2,3,4];
+  items = [
+    {
+      icon: "calendar2-day-fill",
+      text: "ضمانت 7 روزه بازگشت پول"
+    },
+    {
+      icon: "bus-front",
+      text: "ارسال سریع کالا"
+    },
+    {
+      icon: "headset",
+      text: "ارتباط تلفنی با مشتری"
+    },
+    {
+      icon: "credit-card-2-back-fill",
+      text: "پرداخت امن از درگاه بانکی"
+    }
+  ];
 
 }

@@ -3,35 +3,35 @@
   <div class="h-12 mt-3 flex justify-between items-center">
     <!-- name and image -->
     <div class="h-full  flex gap-3 lg:text-base">
-      <img src="./../../../../../assets/images/bag-ad2.jpg" alt="" class="h-full w-12 aspect-square rounded-full overflow-hidden shadow">
+     <i class="bi bi-person-circle text-[44px] text-slate-500 flex justify-center items-center h-full w-12 aspect-square rounded-full overflow-hidden shadow" *ngIf="!item.img" ></i>
+      <img src="./../../../../../assets/images/bag-ad2.jpg" *ngIf="item.img" alt="" class="h-full w-12 aspect-square rounded-full overflow-hidden shadow">
       <div class="w-fit">
-        <p class="w-fit !m-0">{{'سید حسین میرداماد'}}</p>
-        <p class="">
+        <p class="w-fit !m-0">{{item.userName}}</p>
+        <p *ngIf="item.rating" class="">
           <i class=" bi bi-star-fill text-amber-500"></i>
-          <span class="text-black"> 4.3 </span>
+          <span class="text-black"> {{item.rating}} </span>
         </p>
       </div>
     </div>
     <!-- date -->
     <p class="text-slate-300">
-      {{' 17 تیر 1402'}}
+      {{item.date}}
     </p>
   </div>
 
   <!-- content -->
   <p class="text-slate-700 text-justify py-4 px-3 lg:text-base">
-    من اینو از دیجی کالا گرفتم واقعا به درد نمیخوره اصلا کارایی نداره انقدر داغ میکنه توانش رو زده ۶۰۰۰ هزار اما به زور ۴۰۰ یا
-    ۵۰۰ باشه روز اول مرجوع کردم قبول نکردن و دوباره برام فرستادن نگیرید
+    {{item.text}}
   </p>
   <!-- footer -->
   <div class="w-full flex justify-end items-center gap-3 text-base">
     <span class="bg-slate-200 hover:bg-slate-400 transition duration-300 px-2 py-1 rounded-lg cursor-pointer">
       <i class="bi bi-hand-thumbs-up"></i>
-      {{'3'}}
+      {{item.like}}
     </span>
     <span class="bg-slate-200 hover:bg-slate-400 transition duration-300 px-2 py-1 rounded-lg cursor-pointer">
-        <i class="bi bi-hand-thumbs-down"></i>
-        {{''}}
-      </span>
+      <i class="bi bi-hand-thumbs-down"></i>
+      {{item.dislike}}
+    </span>
   </div>
 </div>

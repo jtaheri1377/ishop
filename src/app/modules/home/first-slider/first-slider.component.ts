@@ -1,40 +1,47 @@
-import { Component } from '@angular/core';
-import { ProductAd } from 'src/app/shared/models/product.model';
+import { SliderAd } from 'src/app/shared/models/product.model';
+import { HttpService } from './../../../core/services/http.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/Operators';
+import { SwiperOptions } from 'swiper';
 
 @Component({
   selector: 'app-first-slider',
   templateUrl: './first-slider.component.html',
   styleUrls: ['./first-slider.component.css']
 })
-export class FirstSliderComponent {
+export class FirstSliderComponent implements OnInit, OnDestroy {
 
-  items: ProductAd[] = [
-    {
-      id: 0,
-      img: "https://dkstatics-public.digikala.com/digikala-adservice-banners/cc99bfb51b3f5ccd5dfd23984a0a6fb8e12690b5_1689504981.jpg?x-oss-process=image/quality,q_95/format,webp "
+  destroySubject: Subject<void> = new Subject;
+  items: Observable<SliderAd[]>;
+  side_ads: SliderAd[];
+  config: SwiperOptions = {
+    loop: true,
+    slidesPerView: 1,
+    navigation: true,
+    virtual: {
+      enabled: true
     },
-    {
-      id: 1,
-      img: "https://dkstatics-public.digikala.com/digikala-adservice-banners/6226dde386bf52ce1a9a9b545c7f94ac694be42a_1690016419.jpg?x-oss-process=image/quality,q_95/format,webp"
+    pagination: {
+      clickable: true
     },
-    {
-      id: 2,
-      img: "https://dkstatics-public.digikala.com/digikala-adservice-banners/e5e697d5cd6bfdc22b10040eddbf4c9bab34b6d1_1689777551.jpg?x-oss-process=image/quality,q_95/format,webp"
-    },
-    {
-      id: 3,
-      img: "https://dkstatics-public.digikala.com/digikala-adservice-banners/4f94eb14da9ca338a5d3e8d2d905c0b118e9d2b7_1690180181.jpg?x-oss-process=image/quality,q_95/format,webp"
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false
     }
-  ]
+  };
 
-  side_ads: ProductAd[] = [
-    {
-      id: 1,
-      img: "https://dkstatics-public.digikala.com/digikala-adservice-banners/e5e697d5cd6bfdc22b10040eddbf4c9bab34b6d1_1689777551.jpg?x-oss-process=image/quality,q_95/format,webp"
-    },
-    {
-      id: 5,
-      img: "https://dkstatics-public.digikala.com/digikala-adservice-banners/4f94eb14da9ca338a5d3e8d2d905c0b118e9d2b7_1690180181.jpg?x-oss-process=image/quality,q_95/format,webp"
-    }
-  ]
+  constructor(private http: HttpService) { }
+
+  ngOnInit(): void {
+    this.items = this.http.getAll("firstSlider");
+    this.http.getAll("side_ads")
+      .pipe(takeUntil(this.destroySubject))
+      .subscribe((res: any) => this.side_ads = res);
+  }
+
+  ngOnDestroy(): void {
+    this.destroySubject.next();
+  }
+
 }
