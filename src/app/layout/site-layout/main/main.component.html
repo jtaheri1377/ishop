@@ -1,84 +1,13 @@
 <mat-drawer-container dir="rtl" class="w-full h-[calc(100vh-64px)] !bg-slate-100 overflow-hidden" [hasBackdrop]="true">
   <mat-drawer class="h-[calc(100vh-64px)]  !bg-slate-200" #sidenav>
-    <div style="transition-duration: 750ms !important;" class="w-full flex flex-col gap-2">
-      <div (click)="sidenav.toggle()" [routerLink]="['/']" class="w-56 h-fit bg-white p-4 flex justify-between cursor-pointer text-slate-500 hover:text-black items-center gap-3 transition transition-all duration-300 hover:shadow-lg font-bold">
+    <div style="transition-duration: 750ms !important;" *ngFor="let item of drawerItems" class="w-full my-2 flex flex-col gap-2">
+      <div (click)="sidenav.toggle()" [routerLink]="[item.route]" class="w-56 h-fit bg-white p-4 flex justify-between cursor-pointer text-slate-500 hover:text-black items-center gap-3 transition transition-all duration-300 hover:shadow-lg font-bold">
         <div class="h-full px-2 flex gap-2">
-          <i class="bi bi-house-fill "></i>
-          {{'خانه'}}
+          <i [class]="item.icon"></i>
+          {{item.name}}
         </div>
         <i class="bi bi-caret-left-fill "></i>
       </div>
-      <div (click)="sidenav.toggle()" [routerLink]="['/basket']" class="w-56 h-fit bg-white p-4 flex justify-between cursor-pointer text-slate-500 hover:text-black items-center gap-3 transition transition-all duration-300 hover:shadow-lg font-bold">
-        <div class="h-full px-2 flex gap-2">
-          <i class="bi bi-cart3 "></i>
-          {{'سبد خرید'}}
-        </div>
-        <i class="bi bi-caret-left-fill "></i>
-      </div>
-      <div (click)="sidenav.toggle()" [routerLink]="['/explore','00']" class="w-56 h-fit bg-white p-4 flex justify-between cursor-pointer text-slate-500 hover:text-black items-center gap-3 transition transition-all duration-300 hover:shadow-lg font-bold">
-        <div class="h-full px-2 flex gap-2">
-          <i class="fa fa-male "></i>
-          {{'لباس مردانه'}}
-        </div>
-        <i class="bi bi-caret-left-fill "></i>
-      </div>
-      <div (click)="sidenav.toggle()" [routerLink]="['/explore','01']" class="w-56 h-fit bg-white p-4 flex justify-between cursor-pointer text-slate-500 hover:text-black items-center gap-3 transition transition-all duration-300 hover:shadow-lg font-bold">
-        <div class="h-full px-2 flex gap-2">
-          <i class="fa fa-female"></i>
-          {{'لباس زنانه'}}
-        </div>
-        <i class="bi bi-caret-left-fill "></i>
-      </div>
-      <div (click)="sidenav.toggle()" [routerLink]="['/explore','02']" class="w-56 h-fit bg-white p-4 flex justify-between cursor-pointer text-slate-500 hover:text-black items-center gap-3 transition transition-all duration-300 hover:shadow-lg font-bold">
-        <div class="h-full px-2 flex gap-2">
-          <i class="fa fa-child"></i>
-          {{'لباس کودک و نوزاد'}}
-        </div>
-        <i class="bi bi-caret-left-fill "></i>
-      </div>
-      <div (click)="sidenav.toggle()" [routerLink]="['/explore','03']" class="w-56 h-fit bg-white p-4 flex justify-between cursor-pointer text-slate-500 hover:text-black items-center gap-3 transition transition-all duration-300 hover:shadow-lg font-bold">
-        <div class="h-full px-2 flex gap-2">
-          <i class="fa fa-shopping-bag"></i>
-          {{'کیف'}}
-        </div>
-        <i class="bi bi-caret-left-fill "></i>
-      </div>
-      <div (click)="sidenav.toggle()" [routerLink]="['/explore','04']" class="w-56 h-fit bg-white p-4 flex justify-between cursor-pointer text-slate-500 hover:text-black items-center gap-3 transition transition-all duration-300 hover:shadow-lg font-bold">
-        <div class="h-full px-2 flex gap-2">
-          <i class="bi bi-person-fill"></i>
-          {{'کفش'}}
-        </div>
-        <i class="bi bi-caret-left-fill "></i>
-      </div>
-      <div (click)="sidenav.toggle()" [routerLink]="['/explore','05']" class="w-56 h-fit bg-white p-4 flex justify-between cursor-pointer text-slate-500 hover:text-black items-center gap-3 transition transition-all duration-300 hover:shadow-lg font-bold">
-        <div class="h-full px-2 flex gap-2">
-          <i class="bi bi-circle-half"></i>
-          {{'لباس ورزشی '}}
-        </div>
-        <i class="bi bi-caret-left-fill "></i>
-      </div>
-      <div (click)="sidenav.toggle()" [routerLink]="['/explore','06']" class="w-56 h-fit bg-white p-4 flex justify-between cursor-pointer text-slate-500 hover:text-black items-center gap-3 transition transition-all duration-300 hover:shadow-lg font-bold">
-        <div class="h-full px-2 flex gap-2">
-          <i class="bi bi-person-heart "></i>
-          {{'کت و شلوار'}}
-        </div>
-        <i class="bi bi-caret-left-fill "></i>
-      </div>
-      <div (click)="sidenav.toggle()" [routerLink]="['/explore','07']" class="w-56 h-fit bg-white p-4 flex justify-between cursor-pointer text-slate-500 hover:text-black items-center gap-3 transition transition-all duration-300 hover:shadow-lg font-bold">
-        <div class="h-full px-2 flex gap-2">
-          <i class="bi bi-stars "></i>
-          {{'لباس خواب و راحتی'}}
-        </div>
-        <i class="bi bi-caret-left-fill "></i>
-      </div>
-      <div (click)="sidenav.toggle()" [routerLink]="['/explore','08']" class="w-56 h-fit bg-white p-4 flex justify-between cursor-pointer text-slate-500 hover:text-black items-center gap-3 transition transition-all duration-300 hover:shadow-lg font-bold">
-        <div class="h-full px-2 flex gap-2">
-          <i class="bi bi-watch "></i>
-          {{'اکسسوری'}}
-        </div>
-        <i class="bi bi-caret-left-fill "></i>
-      </div>
-
     </div>
   </mat-drawer>
 

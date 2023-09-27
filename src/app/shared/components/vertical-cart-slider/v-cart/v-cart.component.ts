@@ -75,6 +75,7 @@ export class VCartComponent implements OnInit, OnDestroy {
 
   decrease() {
     this.item.amount--;
+    debugger;
     if (this.item.amount > 0)
       this.http.updateByField("user_Basket", "pId", this.item.pId, this.item)
         .subscribe((item: any) => {
